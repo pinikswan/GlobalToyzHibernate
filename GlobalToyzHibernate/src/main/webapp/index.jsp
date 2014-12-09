@@ -28,22 +28,22 @@
 				<th>Action</th>
 			</tr>
 
-			<c:forEach items="${applicationScope.orderDetails}" var="orderDetail">
+			<c:forEach items="${applicationScope.orders}" var="order">
 
 
 
 
 				<tr>
-					<td>${orderDetail.order.orderNo}</td>
-					<td>${orderDetail.order.orderDate }</td>
-					<td>${orderDetail.order.shopper.firstName}
-						${orderDetail.order.shopper.lastName }</td>
-					<td>${orderDetail.order.shippingMode.mode}</td>
-					<td>${orderDetail.order.shippingCharges }</td>
-					<td>${orderDetail.order.giftWrapCharges}</td>
-					<td>${orderDetail.order.orderProcessed }</td>
-					<td>${orderDetail.order.totalCost }</td>
-					<td>${orderDetail.order.expirationDate }</td>
+					<td>${order.orderNo}</td>
+					<td>${order.orderDate }</td>
+					<td>${order.shopper.firstName}
+						${order.shopper.lastName }</td>
+					<td>${order.shippingMode.mode}</td>
+					<td>${order.shippingCharges }</td>
+					<td>${order.giftWrapCharges}</td>
+					<td>${order.orderProcessed }</td>
+					<td>${order.totalCost }</td>
+					<td>${order.expirationDate }</td>
 					<td><a href="./viewOrder?orderNo=${orderDetail.order.orderNo}"><b>View</b></a></td>
 				</tr>
 

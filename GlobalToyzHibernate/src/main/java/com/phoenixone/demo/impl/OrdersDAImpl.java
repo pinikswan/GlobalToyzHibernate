@@ -48,4 +48,14 @@ public class OrdersDAImpl implements OrdersDA {
 		return query.getResultList();
 	}
 
+	public List<Order> getAllOrders() {
+		EntityManagerFactory entityManagerFactory = Persistence
+				.createEntityManagerFactory("db-persistence");
+		EntityManager entityManager = entityManagerFactory
+				.createEntityManager();
+		Query query = entityManager
+				.createQuery("from order");
+		return query.getResultList();
+	}
+
 }

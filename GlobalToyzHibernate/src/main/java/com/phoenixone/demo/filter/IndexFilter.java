@@ -10,7 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import com.phoenixone.demo.entities.OrderDetail;
+import com.phoenixone.demo.entities.Order;
 import com.phoenixone.demo.impl.OrdersDAImpl;
 import com.phoenixone.demo.service.OrderDetailsService;
 
@@ -29,10 +29,10 @@ public class IndexFilter implements Filter {
 	public void init(FilterConfig filterConfig) throws ServletException {
 		
 		OrderDetailsService service = new OrderDetailsService(new OrdersDAImpl());
-		List<OrderDetail> orderDetails = service.getOrderDetails();
+		List<Order> orders = service.getAllOrders();
 
-		filterConfig.getServletContext().setAttribute("orderDetails",
-				orderDetails);
+		filterConfig.getServletContext().setAttribute("orders",
+				orders);
 
 	}
 
