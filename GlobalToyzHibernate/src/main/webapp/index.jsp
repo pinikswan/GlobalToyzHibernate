@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/index.css" />
-<title>Horizon Airways</title>
+<title>Global Toyz</title>
 </head>
 
 <body>
@@ -44,7 +44,7 @@
 					<td>${order.orderProcessed }</td>
 					<td>${order.totalCost }</td>
 					<td>${order.expirationDate }</td>
-					<td><a href="./viewOrder?orderNo=${orderDetail.order.orderNo}"><b>View</b></a></td>
+					<td><a href="./viewOrder?orderNo=${order.orderNo}"><b>View</b></a></td>
 				</tr>
 
 			</c:forEach>
