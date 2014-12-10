@@ -7,18 +7,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="css/index.css" />
-	<title></title>
+	<link rel="stylesheet" href="css/index.css" />
+	<title>Global Toyz</title>
 </head>
 <body>
-
-	Order No:
-	<s:property value="orderNo" />
-	<br /> Customer Name: ${shopper.firstName}&nbsp; ${shopper.lastName}
-	<br /> Address:
-	${shopper.address}&nbsp;${shopper.city}&nbsp;${shopper.state}&nbsp;
-	${shopper.country.name}&nbsp; ${shopper.zip}
-	<br /> Contact No: ${shopper.phone}
+	<div>
+		Order No:<s:property value="orderNo" />
+	</div>
+	<div>
+		Customer Name: ${shopper.firstName}&nbsp;${shopper.lastName}
+	</div>
+	<div>
+		Address: ${shopper.address}&nbsp;${shopper.city},${shopper.state}&nbsp;${shopper.country.name}&nbsp;${shopper.zip}
+	</div>
+	<div>
+		Contact No: ${shopper.phone}
+	</div>
 
 
 	<table>
@@ -35,17 +39,18 @@
 			<tr>
 				<td>${toyOrder.toy.id}</td>
 				<td>${toyOrder.toy.name}</td>
-				<td>${toyOrder.toy.price}</td>
+				<td>$ ${toyOrder.toy.price}</td>
 				<td>${toyOrder.quantity}</td>
-				<td>${toyOrder.totalPrice}</td>
+				<td>$ ${toyOrder.totalPrice}</td>
 
 			</tr>
-		
+
 
 		</c:forEach>
-			<tr><td colspan="4">Grand total:</td>
-			<td> ${toyOrders.grandTotal}</td>
-			</tr>
+		<tr>
+			<td colspan="4">Grand total:</td>
+			<td>$ ${toyOrders.grandTotal}</td>
+		</tr>
 	</table>
 
 </body>

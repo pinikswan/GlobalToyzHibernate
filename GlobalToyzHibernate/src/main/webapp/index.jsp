@@ -11,48 +11,38 @@
 </head>
 
 <body>
-	<font face="Arial, Helvetica, sans-serif" size="-1">
+	<h3>Order List</h3>
+
+	<table>
+		<tr>
+			<th>Order No.</th>
+			<th>Order Date</th>
+			<th>Shopper Name</th>
+			<th>Shipping Mode</th>
+			<th>Shipping Charges</th>
+			<th>Gift Wrap Charges</th>
+			<th>Is Order Processed?</th>
+			<th>Total</th>
+			<th>Delivery Expiration Date</th>
+			<th>Action</th>
+		</tr>
 
 
-		<table>
-			<tr padding="5px">
-				<th>Order No.</th>
-				<th>Order Date</th>
-				<th>Shopper Name</th>
-				<th>Shipping Mode</th>
-				<th>Shipping Charges</th>
-				<th>Giftwrap Charges</th>
-				<th>Is Order Processed?</th>
-				<th>Total</th>
-				<th>Delivery Expiration Date</th>
-				<th>Action</th>
+		<c:forEach items="${applicationScope.orders}" var="order">
+			<tr>
+				<td>${order.orderNo}</td>
+				<td>${order.orderDate }</td>
+				<td>${order.shopper.firstName}${order.shopper.lastName }</td>
+				<td>${order.shippingMode.mode}</td>
+				<td>${order.shippingCharges }</td>
+				<td>${order.giftWrapCharges}</td>
+				<td>${order.orderProcessed }</td>
+				<td>$ ${order.totalCost }</td>
+				<td>${order.expirationDate }</td>
+				<td><a href="./viewOrder?orderNo=${order.orderNo}"><b>View</b></a></td>
 			</tr>
-			
-			<h3>Order List</h3>
-
-			<c:forEach items="${applicationScope.orders}" var="order">
-
-
-
-
-				<tr>
-					<td>${order.orderNo}</td>
-					<td>${order.orderDate }</td>
-					<td>${order.shopper.firstName}
-						${order.shopper.lastName }</td>
-					<td>${order.shippingMode.mode}</td>
-					<td>${order.shippingCharges }</td>
-					<td>${order.giftWrapCharges}</td>
-					<td>${order.orderProcessed }</td>
-					<td>${order.totalCost }</td>
-					<td>${order.expirationDate }</td>
-					<td><a href="./viewOrder?orderNo=${order.orderNo}"><b>View</b></a></td>
-				</tr>
-
-			</c:forEach>
-		</table>
-
-	</font>
+		</c:forEach>
+	</table>
 
 </body>
 
