@@ -27,6 +27,7 @@ public class OrdersDAImpl implements OrdersDA {
 	
 
 	public List<OrderDetail> getOrderDetailsOrderNo(String orderNo) {
+		
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("db-persistence");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		Query query = entityManager.createQuery("from orderDetail o where o.order.orderNo = ?");
@@ -35,10 +36,9 @@ public class OrdersDAImpl implements OrdersDA {
 	}
 
 	public List<Order> getAllOrders() {
-		EntityManagerFactory entityManagerFactory = Persistence
-				.createEntityManagerFactory("db-persistence");
-		EntityManager entityManager = entityManagerFactory
-				.createEntityManager();
+		
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("db-persistence");
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		Query query = entityManager.createQuery("from order");
 		return query.getResultList();
 	}

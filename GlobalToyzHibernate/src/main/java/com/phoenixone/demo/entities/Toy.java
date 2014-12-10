@@ -2,12 +2,10 @@ package com.phoenixone.demo.entities;
 
 import java.math.BigDecimal;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -20,7 +18,6 @@ public class Toy {
 	private Category category;
 	private BigDecimal price;
 	private Brand brand;
-	private Object photo;
 	private Integer quantity;
 	private Integer lowerAge;
 	private Integer upperAge;
@@ -31,15 +28,15 @@ public class Toy {
 	}
 
 	public Toy(String id, String name, String description, Category category,
-			BigDecimal price, Brand brand, Object photo, int quantity,
+			BigDecimal price, Brand brand, int quantity,
 			int lowerAge, int upperAge, int weight, String imagePath) {
+		
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.category = category;
 		this.price = price;
 		this.brand = brand;
-		this.photo = photo;
 		this.quantity = quantity;
 		this.lowerAge = lowerAge;
 		this.upperAge = upperAge;
@@ -103,13 +100,6 @@ public class Toy {
 	public void setBrand(Brand brand) {
 		this.brand = brand;
 	}
-
-	/*
-	 * @Column(name="imPhoto", nullable=true) public Object getPhoto() { return
-	 * photo; }
-	 * 
-	 * public void setPhoto(Object photo) { this.photo = photo; }
-	 */
 
 	@Column(name = "siToyQoh", nullable = false)
 	public Integer getQuantity() {

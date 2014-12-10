@@ -32,7 +32,7 @@ public class Order {
 			ShippingMode shippingMode, BigDecimal shippingCharges,
 			BigDecimal giftWrapCharges, Character orderProcessed,
 			BigDecimal totalCost, Date expirationDate) {
-		super();
+		
 		this.orderNo = orderNo;
 		this.orderDate = orderDate;
 		this.shopper = shopper;

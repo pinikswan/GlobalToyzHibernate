@@ -18,7 +18,7 @@ public class ShippingMode {
 	}
 
 	public ShippingMode(String id, String mode, Integer maximumDaysDelay) {
-		super();
+		
 		this.id = id;
 		this.mode = mode;
 		this.maximumDaysDelay = maximumDaysDelay;

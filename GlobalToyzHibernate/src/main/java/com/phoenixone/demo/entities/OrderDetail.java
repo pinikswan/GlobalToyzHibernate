@@ -11,12 +11,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-//import com.phoenixone.demo.entities.OrderDetail.OrderDertailsId;
+
 
 @Entity(name = "orderDetail")
 @Table(name = "OrderDetail")
 public class OrderDetail implements Serializable {
 
+
+	private static final long serialVersionUID = 1L;
 	private Order order;
 	private Toy toy;
 	private Integer quantity;
@@ -26,7 +28,7 @@ public class OrderDetail implements Serializable {
 	}
 
 	public OrderDetail(Order order, Toy toy, Integer quantity) {
-		super();
+		
 		this.order = order;
 		this.toy = toy;
 		this.quantity = quantity;
@@ -66,6 +68,7 @@ public class OrderDetail implements Serializable {
 	@Embeddable
 	public class OrderDertailsId implements Serializable {
 
+		private static final long serialVersionUID = 1L;
 		private String toyId;
 
 		@Column(name = "cToyId")

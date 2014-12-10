@@ -29,7 +29,7 @@ public class Shopper {
 	public Shopper(String id, String firstName, String lastName, String email,
 			String address, String city, String state, Country country,
 			String zip, String phone) {
-		super();
+		
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;

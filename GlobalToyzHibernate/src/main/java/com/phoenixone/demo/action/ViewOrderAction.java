@@ -22,23 +22,25 @@ public class ViewOrderAction extends ActionSupport implements RequestAware {
 	private Map<String, Object> request;
 
 	public String execute() throws Exception {
-		Shopper shopper = null;
-
-		OrderDetailsService service = new OrderDetailsService(
-				new OrdersDAImpl());
-		shopper =  service.getShopperByOrderNo(orderNo);
 		
+		Shopper shopper = null;
+		OrderDetailsService service = new OrderDetailsService(new OrdersDAImpl());
+		shopper =  service.getShopperByOrderNo(orderNo);
 		
 		List<OrderDetail> orderdetails = service.getOrderDetailsByOrderNo(orderNo);
 		List<ToyOrder> toyOrderList = new ArrayList<ToyOrder>();
+		
 		for (OrderDetail orderDetail : orderdetails) {
 
 			ToyOrder toyOrder = new ToyOrder(orderDetail.getToy(),  orderDetail.getQuantity());
 			toyOrderList.add(toyOrder);
+			
 		}
+		
 		ToyOrders toyOrders = new ToyOrders(toyOrderList);
 		request.put("shopper", shopper);
 		request.put("toyOrders", toyOrders);
+		
 		return SUCCESS;
 	}
 

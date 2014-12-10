@@ -2,7 +2,6 @@ package com.phoenixone.demo.entities;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Map;
 
 public class ToyOrders {
 
@@ -26,11 +25,13 @@ public class ToyOrders {
 	}
 
 	public BigDecimal getGrandTotal() {
+		
 		grandTotal = new BigDecimal(0);
 
 		for (ToyOrder toyOrder : toyOrders) {
 			grandTotal = grandTotal.add(toyOrder.getTotalPrice());
 		}
+		
 		return grandTotal.setScale(2, BigDecimal.ROUND_HALF_UP);
 	}
 

@@ -33,7 +33,9 @@ public class ToyOrder {
 	}
 
 	public BigDecimal getTotalPrice() {
+		
 		totalPrice =  toy.getPrice().multiply(new BigDecimal(quantity));
+		
 		return totalPrice;
 	}
 

@@ -31,8 +31,7 @@ public class IndexFilter implements Filter {
 		OrderDetailsService service = new OrderDetailsService(new OrdersDAImpl());
 		List<Order> orders = service.getAllOrders();
 
-		filterConfig.getServletContext().setAttribute("orders",
-				orders);
+		filterConfig.getServletContext().setAttribute("orders",orders);
 
 	}
 
