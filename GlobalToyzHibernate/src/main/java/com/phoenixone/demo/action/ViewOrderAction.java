@@ -1,16 +1,15 @@
 package com.phoenixone.demo.action;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.RequestAware;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.phoenixone.demo.entities.Order;
 import com.phoenixone.demo.entities.OrderDetail;
 import com.phoenixone.demo.entities.Shopper;
-import com.phoenixone.demo.entities.Toy;
+import com.phoenixone.demo.entities.ToyOrder;
 import com.phoenixone.demo.entities.ToyOrders;
 import com.phoenixone.demo.impl.OrdersDAImpl;
 import com.phoenixone.demo.service.OrderDetailsService;
@@ -27,21 +26,19 @@ public class ViewOrderAction extends ActionSupport implements RequestAware {
 
 		OrderDetailsService service = new OrderDetailsService(
 				new OrdersDAImpl());
-		Order order = service.getOrderByOrderNo(orderNo);
-		shopper = order.getShopper();
-
+		shopper =  service.getShopperByOrderNo(orderNo);
+		
 		
 		List<OrderDetail> orderdetails = service.getOrderDetailsByOrderNo(orderNo);
-
-		Map<Toy, Integer> toyOrders = new HashMap<Toy, Integer>();
+		List<ToyOrder> toyOrderList = new ArrayList<ToyOrder>();
 		for (OrderDetail orderDetail : orderdetails) {
 
-			toyOrders.put(orderDetail.getToy(), orderDetail.getQuantity());
+			ToyOrder toyOrder = new ToyOrder(orderDetail.getToy(),  orderDetail.getQuantity());
+			toyOrderList.add(toyOrder);
 		}
-		ToyOrders tOrders = new ToyOrders(toyOrders);
+		ToyOrders toyOrders = new ToyOrders(toyOrderList);
 		request.put("shopper", shopper);
 		request.put("toyOrders", toyOrders);
-		request.put("tOrders", tOrders);
 		return SUCCESS;
 	}
 

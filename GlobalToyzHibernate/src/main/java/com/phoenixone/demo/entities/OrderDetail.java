@@ -18,7 +18,6 @@ import javax.persistence.Table;
 public class OrderDetail implements Serializable {
 
 	private Order order;
-	
 	private Toy toy;
 	private Integer quantity;
 

@@ -2,17 +2,15 @@ package com.phoenixone.demo.service;
 
 import java.util.List;
 
-import javax.persistence.Embeddable;
-
 import com.phoenixone.demo.da.OrdersDA;
 import com.phoenixone.demo.entities.Order;
 import com.phoenixone.demo.entities.OrderDetail;
+import com.phoenixone.demo.entities.Shopper;
 
 public class OrderDetailsService {
 
 	private OrdersDA da;
 
-	
 	public OrderDetailsService() {
 
 	}
@@ -20,14 +18,6 @@ public class OrderDetailsService {
 	public OrderDetailsService(OrdersDA da) {
 
 		this.da = da;
-	}
-
-	public List<OrderDetail> getOrderDetails() {
-		return da.getAllOrderDetails();
-	}
-	
-	public Order getOrderByOrderNo(String orderNo){
-		return da.getOrderByOrderNo(orderNo);
 	}
 
 	public OrdersDA getDa() {
@@ -38,10 +28,14 @@ public class OrderDetailsService {
 		this.da = da;
 	}
 
+	public Shopper getShopperByOrderNo(String orderNo) {
+		return da.getShopperByOrderNo(orderNo);
+	}
+
 	public List<OrderDetail> getOrderDetailsByOrderNo(String orderNo) {
 		return da.getOrderDetailsOrderNo(orderNo);
 	}
-	
+
 	public List<Order> getAllOrders() {
 		return da.getAllOrders();
 	}

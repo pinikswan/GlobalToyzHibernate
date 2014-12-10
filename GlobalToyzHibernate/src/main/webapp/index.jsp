@@ -27,6 +27,8 @@
 				<th>Delivery Expiration Date</th>
 				<th>Action</th>
 			</tr>
+			
+			<h3>Order List</h3>
 
 			<c:forEach items="${applicationScope.orders}" var="order">
 

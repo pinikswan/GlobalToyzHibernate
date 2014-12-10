@@ -30,21 +30,21 @@
 			<th>Total Price</th>
 		</tr>
 
-		<c:forEach items="${requestScope.toyOrders}" var="toyOrder">
+		<c:forEach items="${requestScope.toyOrders.toyOrders}" var="toyOrder">
 
 			<tr>
-				<td>${toyOrder.key.id}</td>
-				<td>${toyOrder.key.name}</td>
-				<td>${toyOrder.key.price}</td>
-				<td>${toyOrder.value}</td>
-				<td>${toyOrder.value * toyOrder.key.price}</td>
+				<td>${toyOrder.toy.id}</td>
+				<td>${toyOrder.toy.name}</td>
+				<td>${toyOrder.toy.price}</td>
+				<td>${toyOrder.quantity}</td>
+				<td>${toyOrder.totalPrice}</td>
 
 			</tr>
 		
 
 		</c:forEach>
 			<tr><td colspan="4">Grand total:</td>
-			<td> ${tOrders.grandTotal}</td>
+			<td> ${toyOrders.grandTotal}</td>
 			</tr>
 	</table>
 
